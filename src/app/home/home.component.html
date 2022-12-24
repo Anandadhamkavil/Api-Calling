@@ -1,0 +1,41 @@
+
+
+<!-- {{ allUsers | json }} -->
+
+<div class="container">
+  <div class="row mt-5" style="width: 300px">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="search users here" (keyup)="search($event)"
+        />
+      </div>
+    <br />
+    <table class="table container">
+      <tr>
+        <th>FirstName</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>BirthDate</th>
+        <th>Photo</th>
+        <th>Address</th>
+      </tr>
+      <tr *ngFor="let user of allusers | pipe : searchKey : 'firstName'">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.birthDate }}</td>
+        <td>
+          <img
+            height="60px"
+            [src]="user.image"
+            alt="no image"
+            class="contact_image"
+          />
+        </td>
+        <td>{{ user.address.address }}</td>
+      </tr>
+    </table>
+</div >
